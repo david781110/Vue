@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{text}}</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { ref } = Vue;
+        const App = {
+            setup() {
+                //透過Vue.ref對資料做綁定
+                const text = ref("Hello Vue!");
+                const text2 = ref("Hello Vue!");
+                const text3 = ref("Hello Vue!");
+
+                setTimeout(() => {
+                    text.value = "Mike";
+                    console.log(text);
+                }, 3000);
+
+                return { text };
+            }
+        };
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>

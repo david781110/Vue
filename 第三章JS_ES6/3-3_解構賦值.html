@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            name: "Mike",
+            age: 12,
+            address: "Taiwan",
+        };
+        // 以前的做法
+        // data.name
+        // data.age
+        // data.address
+
+        //////////解構拿出來///////////////
+        const { name, age, address } = user;
+        console.log(name, age, address);
+
+        //////////解構物件包物件////////////////
+        const userData = {
+            user,
+            sex: "boy",
+        };
+
+        console.log(userData);
+    </script>
+</body>
+
+</html>

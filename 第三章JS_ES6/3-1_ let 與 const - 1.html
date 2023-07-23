@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3];
+        if(true){
+            var arr = [];
+        }
+        //會覆蓋到第一個arr
+        console.log(arr);
+        
+        var arr= [1,2,3];
+        if(true){
+            //let只會在{}的範圍內
+            let arr=[];
+        }
+        console.log(arr);
+
+       
+        if(true){
+            let txt = "0";
+            txt = "123"
+            //let可以被修改
+            console.log(txt);
+        }
+
+        if(true){
+            const txt = "0";
+            txt = "123"
+            //const不可以被修改，被當作常數
+            console.log(txt);
+        }
+    </script>
+</body>
+</html>

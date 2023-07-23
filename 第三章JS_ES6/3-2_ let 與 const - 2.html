@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //const為二會被改變的是物件和陣列，但型別不會被改變
+        const a = { name: "Mike" };
+        const b = [];
+        a["age"] = 12;
+        b.push("mike");
+
+        console.log(a);
+        console.log(b);
+    </script>
+</body>
+
+</html>

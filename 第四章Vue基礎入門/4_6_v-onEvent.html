@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{num}}</h1>
+        <h2>{{Num.int}}</h2>
+        <button v-on:click="AddFn">Add</button>
+        <!-- //@為v-on的縮寫 -->
+        <button @click="RemoveFn">Remove</button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { ref, reactive } = Vue;
+        const App = {
+            setup() {
+                const num = ref(0);
+                const Num = reactive({ int: 0 })
+                const AddFn = () => {
+                    // num.value = num.value + 1;
+                    num.value++;
+                    Num.int++;
+                };
+                const RemoveFn = () => {
+                    num.value--;
+                    Num.int--;
+                }
+                return { num, AddFn, RemoveFn, Num };
+            },
+        };
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>

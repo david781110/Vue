@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{Num.int}}</h1>
+        <button @click="AddFn">Add</button>
+        <!-- //@為v-on的縮寫 -->
+        <button @click="Test">Add Copy</button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { reactive, readonly } = Vue;
+        const App = {
+            setup() {
+                const Num = reactive({ int: 0 });
+                const copyNum = readonly(Num);
+                const AddFn = () => {
+                    Num.int++;
+                };
+                const Test = () => {
+
+                    console.log(copyNum);
+                }
+                return { Num, AddFn, Test };
+            },
+        };
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>

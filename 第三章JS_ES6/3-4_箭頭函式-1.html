@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a id="alink1" href="javascript:">Click1</a>
+    <a id="alink2" href="javascript:">Click2</a>
+
+    <script>
+        document.getElementById("alink1").addEventListener("click", function () {
+            console.log("alink1");
+        });
+        document.getElementById("alink2").addEventListener("click", () => {
+            console.log("alink2");
+        });
+
+        //指向a標籤
+        document.getElementById("alink1").addEventListener("click", function () {
+            console.log(this);
+        });
+        //箭頭函示沒有this，會往上一層到windows
+        document.getElementById("alink2").addEventListener("click", () => {
+            console.log(this);
+        });
+        //要利用返回值e去取得a標籤
+        document.getElementById("alink2").addEventListener("click", (e) => {
+            console.log(e.target);
+        });
+    </script>
+</body>
+
+</html>

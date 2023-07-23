@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const ArrToStr = (arr) => {
+            //map可以重組陣列
+            //map() 方法使用起來跟 forEach() 方法非常類似，最大的區別就是 forEach() 會修改原本的陣列，而map() 方法可以回傳一個新的陣列，並保有原本的舊陣列，另外 forEach() 並不會回傳任何東西，所以寫在 return 裡的東西不會有作用哦！
+            const mapStr = arr.map(function (item) {
+                return item + "";
+            });
+
+            return mapStr;
+        };
+
+        console.log(ArrToStr([1, 2, 3]));
+
+        //////////為避免傳入空的會造成map，可以先在參數上給[]空陣列或預設值
+
+        const ArrToStr2 = (arr = []) => {
+
+            const mapStr = arr.map((item) => item + "");
+
+            return mapStr;
+        };
+
+        console.log(ArrToStr2([1, 2, 3, 4]));
+    </script>
+</body>
+
+</html>

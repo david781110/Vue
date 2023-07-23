@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">{{text}} {{message.text}}</div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        //ref( ) : 可以接受任何型態的資料，但是不會對物件或陣列內部的屬性變動做監聽。
+        //reactive( ) : 只能接受物件或陣列，可以做深層的監聽，以及訪問資料不需要 .value。
+
+        const { ref, reactive } = Vue;
+        const App = {
+            setup() {
+                const text = ref("Hello Vue");
+                const message = reactive({ text: "Mike" });
+                return { text, message };
+            },
+        };
+
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>

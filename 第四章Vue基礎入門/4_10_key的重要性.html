@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-for</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!--v-show透過css display:none和display:block-->
+            <!--key可以只渲染被修改的部分，不能把index當key，因為位置改變會造成渲染錯誤-->
+            <li v-for="(item,idx) in listArr" v-bind:key="item.name" v-show="item.show">{{idx+1}} {{item.name}}</li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { reactive } = Vue;
+        const App = {
+            setup() {
+                const listArr = reactive([
+                    { name: "2020 Vue3 專業職人 | 入門篇", show: true },
+                    { name: "2020 Vue3 專業職人 | 加值篇", show: false },
+                    { name: "2020 Vue3 專業職人 | 進階篇", show: true },
+                    { name: "現代 JavaScript 職人之路｜入門篇", show: true },
+                    { name: "現代 JavaScript 職人之路｜中階實戰篇", show: false },
+                ]);
+                return {
+                    listArr,
+                };
+            },
+        };
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+
+</html>
